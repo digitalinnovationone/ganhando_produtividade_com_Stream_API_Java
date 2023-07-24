@@ -1,7 +1,5 @@
 # Ganhando Produtividade com Stream API e Java
 
-## Stream API
-
 - A Streams API traz uma nova opção para a manipulação de coleções em Java seguindo os princípios da programação funcional.
 - Stream, trata-se de uma poderosa solução para processar coleções de maneira declarativa, ao invés da tradicional e burocrática forma imperativa.
 
@@ -55,6 +53,13 @@ public class CarrinhoDeCompras {
 - Combinada com as Expressões Lambda e Method reference, eles proporcionam uma forma diferente de lidar com conjuntos de elementos, oferecendo ao desenvolvedor uma maneira simples e concisa de
   escrever código que resulta em facilidade de manutenção e paralelização sem efeitos indesejados em tempo de execução.
 
+### Lambda
+
+- Uma função lambda é uma função sem declaração, isto é, não é necessário colocar um nome, um tipo de retorno e o modificador
+de acesso. 
+- A ideia é que o método seja declarado no mesmo lugar em que será usado. As funções lambda em Java tem a sintaxe
+definida como (argumento) -> (corpo).
+
 ```java
 public class OrdenacaoPessoa {
   //atributo
@@ -76,6 +81,12 @@ public class OrdenacaoPessoa {
   }
 }
 ```
+
+### Method Reference
+
+- Method Reference é um novo recurso do Java 8 que permite fazer referência a um método ou construtor de uma classe (de forma
+funcional) e assim indicar que ele deve ser utilizado num ponto específico do código, deixando-o mais simples e legível.
+- Para utilizá-lo, basta informar uma classe ou referência seguida do símbolo “::” e o nome do método sem os parênteses no final.
 
 ```java
 public class OrdenacaoPessoa {
@@ -99,9 +110,14 @@ public class OrdenacaoPessoa {
 }
 ```
 
+---
+
 ### Referências
 
 [1] "Java Stream API - Oracle." Oracle Brasil. Disponível em: https://www.oracle.com/br/technical-resources/articles/java-stream-api.html.
 
 [2] "Java Collections API Examples - cami-la." GitHub. Disponível em: https://github.com/cami-la/collections-java-api-2023.
+
+[3] "Como usar funções lambda em Java - DevMedia." DevMedia. Disponível em: https://www.devmedia.com.br/como-usar-funcoes-lambda-em-java/32826.
+
 
