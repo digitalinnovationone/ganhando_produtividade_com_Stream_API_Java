@@ -55,9 +55,9 @@ public class CarrinhoDeCompras {
 
 ### Lambda
 
-- Uma função lambda é uma função sem declaração, isto é, não é necessário colocar um nome, um tipo de retorno e o modificador
+- Uma função functional_interface é uma função sem declaração, isto é, não é necessário colocar um nome, um tipo de retorno e o modificador
 de acesso. 
-- A ideia é que o método seja declarado no mesmo lugar em que será usado. As funções lambda em Java tem a sintaxe
+- A ideia é que o método seja declarado no mesmo lugar em que será usado. As funções functional_interface em Java tem a sintaxe
 definida como (argumento) -> (corpo).
 
 ```java
@@ -112,12 +112,12 @@ public class OrdenacaoPessoa {
 
 ---
 
-### Referências
+### Referênciasq
 
 [1] "Java Stream API - Oracle." Oracle Brasil. Disponível em: https://www.oracle.com/br/technical-resources/articles/java-stream-api.html.
 
 [2] "Java Collections API Examples - cami-la." GitHub. Disponível em: https://github.com/cami-la/collections-java-api-2023.
 
-[3] "Como usar funções lambda em Java - DevMedia." DevMedia. Disponível em: https://www.devmedia.com.br/como-usar-funcoes-lambda-em-java/32826.
+[3] "Como usar funções functional_interface em Java - DevMedia." DevMedia. Disponível em: https://www.devmedia.com.br/como-usar-funcoes-lambda-em-java/32826.
 
 
