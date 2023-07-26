@@ -90,8 +90,8 @@ Utilizando a Stream API, verifique se todos os números da lista são iguais e e
 Com a Stream API, encontre a soma dos números da lista que são divisíveis tanto por 3 quanto por 5 e exiba o resultado no console.
 
 
-Instruções:
-- Cada desafio está implementado em uma classe separada no pacote "br.com.dio.collection.streamAPI".
+### Instruções:
+- Cada desafio está implementado em uma classe separada neste mesmo pacote.
 - Os desafios podem ser executados individualmente a partir dos métodos main de cada classe.
 - Utilize a Stream API para implementar as operações solicitadas em cada desafio.
 
