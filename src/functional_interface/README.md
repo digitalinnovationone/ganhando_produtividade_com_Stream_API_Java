@@ -13,11 +13,15 @@ public class ConsumerExample {
     // Criar uma lista de números inteiros
     List<Integer> numeros = Arrays.asList(1, 2, 3, 4, 5);
 
-    // Criar um Consumer para imprimir cada número
-    Consumer<Integer> imprimirNumero = numero -> System.out.println(numero);
+    // Usar o Consumer com expressão lambda para imprimir números pares
+    Consumer<Integer> imprimirNumeroPar = numero -> {
+      if (numero % 2 == 0) {
+        System.out.println(numero);
+      }
+    };
 
-    // Usar o Consumer para imprimir cada número no Stream
-    numeros.stream().forEach(imprimirNumero);
+    // Usar o Consumer para imprimir números pares no Stream
+    numeros.stream().forEach(imprimirNumeroPar);
   }
 }
 ```
@@ -28,16 +32,20 @@ public class ConsumerExample {
     // Criar uma lista de números inteiros
     List<Integer> numeros = Arrays.asList(1, 2, 3, 4, 5);
 
-    // Criar um Consumer usando uma classe anônima para imprimir cada número
-    Consumer<Integer> imprimirNumero = new Consumer<Integer>() {
+    // Usar o Consumer com uma classe anônima para imprimir números pares
+    Consumer<Integer> imprimirNumeroPar = new Consumer<Integer>() {
       @Override
       public void accept(Integer numero) {
-        System.out.println(numero);
+        if (numero % 2 == 0) {
+          System.out.println(numero);
+        }
       }
     };
 
-    // Usar o Consumer para imprimir cada número no Stream
-    numeros.stream().forEach(imprimirNumero);
+    // Usar o Consumer para imprimir números pares da lista
+    for (Integer numero : numeros) {
+      imprimirNumeroPar.accept(numero);
+    }
   }
 }
 ```
@@ -48,12 +56,16 @@ public class ConsumerExample {
 ```java
 public class SupplierExample {
   public static void main(String[] args) {
-    // Criar um Supplier para fornecer uma saudação personalizada
+    // Usar o Supplier com expressão lambda para fornecer uma saudação personalizada
     Supplier<String> saudacao = () -> "Olá, seja bem-vindo(a)!";
 
-    // Usar o Supplier para obter a saudação
-    String mensagemSaudacao = saudacao.get();
-    System.out.println(mensagemSaudacao);
+    // Usar o Supplier para obter uma lista com 5 saudações
+    List<String> listaSaudacoes = Stream.generate(saudacao)
+        .limit(5)
+        .collect(Collectors.toList());
+
+    // Imprimir as saudações geradas
+    listaSaudacoes.forEach(System.out::println);
   }
 }
 ```
@@ -61,7 +73,7 @@ public class SupplierExample {
 ```java
 public class SupplierExample {
   public static void main(String[] args) {
-    // Criar um Supplier usando uma classe anônima para fornecer uma saudação personalizada
+    // Usar o Supplier com uma classe anônima para fornecer uma saudação personalizada
     Supplier<String> saudacao = new Supplier<String>() {
       @Override
       public String get() {
@@ -69,9 +81,16 @@ public class SupplierExample {
       }
     };
 
-    // Usar o Supplier para obter a saudação
-    String mensagemSaudacao = saudacao.get();
-    System.out.println(mensagemSaudacao);
+    // Usar o Supplier para obter uma lista com 5 saudações
+    List<String> listaSaudacoes = new ArrayList<>();
+    for (int i = 0; i < 5; i++) {
+      listaSaudacoes.add(saudacao.get());
+    }
+
+    // Imprimir as saudações geradas
+    for (String saudacaoGerada : listaSaudacoes) {
+      System.out.println(saudacaoGerada);
+    }
   }
 }
 ```
@@ -82,13 +101,19 @@ public class SupplierExample {
 ```java
 public class FunctionExample {
   public static void main(String[] args) {
-    // Criar uma função que dobra um número inteiro
+    // Criar uma lista de números inteiros
+    List<Integer> numeros = Arrays.asList(1, 2, 3, 4, 5);
+
+    // Usar a Function com expressão lambda para dobrar todos os números
     Function<Integer, Integer> dobrar = numero -> numero * 2;
 
-    // Usar a função para dobrar um número
-    int numero = 5;
-    int resultado = dobrar.apply(numero);
-    System.out.println("O dobro de " + numero + " é: " + resultado);
+    // Usar a função para dobrar todos os números no Stream e armazená-los em outra lista
+    List<Integer> numerosDobrados = numeros.stream()
+        .map(dobrar)
+        .collect(Collectors.toList());
+
+    // Imprimir a lista de números dobrados
+    numerosDobrados.forEach(System.out::println);
   }
 }
 ```
@@ -96,7 +121,10 @@ public class FunctionExample {
 ```java
 public class FunctionExample {
   public static void main(String[] args) {
-    // Criar uma função que dobra um número inteiro usando uma classe anônima
+    // Criar uma lista de números inteiros
+    List<Integer> numeros = Arrays.asList(1, 2, 3, 4, 5);
+
+    // Usar a Function com uma classe anônima para dobrar todos os números
     Function<Integer, Integer> dobrar = new Function<Integer, Integer>() {
       @Override
       public Integer apply(Integer numero) {
@@ -104,10 +132,16 @@ public class FunctionExample {
       }
     };
 
-    // Usar a função para dobrar um número
-    int numero = 5;
-    int resultado = dobrar.apply(numero);
-    System.out.println("O dobro de " + numero + " é: " + resultado);
+    // Usar a função para dobrar todos os números e armazená-los em outra lista
+    List<Integer> numerosDobrados = new ArrayList<>();
+    for (Integer numero : numeros) {
+      numerosDobrados.add(dobrar.apply(numero));
+    }
+
+    // Imprimir a lista de números dobrados
+    for (Integer numeroDobrado : numerosDobrados) {
+      System.out.println(numeroDobrado);
+    }
   }
 }
 ```
@@ -118,16 +152,19 @@ public class FunctionExample {
 ```java
 public class PredicateExample {
   public static void main(String[] args) {
-    // Criar um predicado para verificar se um número é par
+    // Criar uma lista de números inteiros
+    List<Integer> numeros = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+    // Usar o Predicate com expressão lambda para filtrar números pares
     Predicate<Integer> isPar = numero -> numero % 2 == 0;
 
-    // Usar o predicado para verificar se um número é par
-    int numero = 6;
-    if (isPar.test(numero)) {
-      System.out.println(numero + " é um número par.");
-    } else {
-      System.out.println(numero + " não é um número par.");
-    }
+    // Usar o predicado para filtrar números pares no Stream e armazená-los em outra lista
+    List<Integer> numerosPares = numeros.stream()
+        .filter(isPar)
+        .collect(Collectors.toList());
+
+    // Imprimir a lista de números pares
+    numerosPares.forEach(System.out::println);
   }
 }
 ```
@@ -135,7 +172,10 @@ public class PredicateExample {
 ```java
 public class PredicateExample {
   public static void main(String[] args) {
-    // Criar um predicado para verificar se um número é par usando uma classe anônima
+    // Criar uma lista de números inteiros
+    List<Integer> numeros = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+    // Usar o Predicate com uma classe anônima para filtrar números pares
     Predicate<Integer> isPar = new Predicate<Integer>() {
       @Override
       public boolean test(Integer numero) {
@@ -143,12 +183,17 @@ public class PredicateExample {
       }
     };
 
-    // Usar o predicado para verificar se um número é par
-    int numero = 6;
-    if (isPar.test(numero)) {
-      System.out.println(numero + " é um número par.");
-    } else {
-      System.out.println(numero + " não é um número par.");
+    // Usar o predicado para filtrar números pares e armazená-los em outra lista
+    List<Integer> numerosPares = new ArrayList<>();
+    for (Integer numero : numeros) {
+      if (isPar.test(numero)) {
+        numerosPares.add(numero);
+      }
+    }
+
+    // Imprimir a lista de números pares
+    for (Integer numeroPar : numerosPares) {
+      System.out.println(numeroPar);
     }
   }
 }
@@ -160,14 +205,18 @@ public class PredicateExample {
 ```java
 public class BinaryOperatorExample {
   public static void main(String[] args) {
-    // Criar um BinaryOperator para somar dois números inteiros
+    // Criar uma lista de números inteiros
+    List<Integer> numeros = Arrays.asList(1, 2, 3, 4, 5);
+
+    // Usar o BinaryOperator com expressão lambda para somar dois números inteiros
     BinaryOperator<Integer> somar = (num1, num2) -> num1 + num2;
 
-    // Usar o BinaryOperator para somar dois números
-    int numero1 = 5;
-    int numero2 = 7;
-    int resultado = somar.apply(numero1, numero2);
-    System.out.println("A soma de " + numero1 + " e " + numero2 + " é: " + resultado);
+    // Usar o BinaryOperator para somar todos os números no Stream
+    int resultado = numeros.stream()
+        .reduce(0, somar);
+
+    // Imprimir o resultado da soma
+    System.out.println("A soma dos números é: " + resultado);
   }
 }
 ```
@@ -175,7 +224,10 @@ public class BinaryOperatorExample {
 ```java
 public class BinaryOperatorExample {
   public static void main(String[] args) {
-    // Criar um BinaryOperator para somar dois números inteiros usando uma classe anônima
+    // Criar uma lista de números inteiros
+    List<Integer> numeros = Arrays.asList(1, 2, 3, 4, 5);
+
+    // Usar o BinaryOperator com uma classe anônima para somar dois números inteiros
     BinaryOperator<Integer> somar = new BinaryOperator<Integer>() {
       @Override
       public Integer apply(Integer num1, Integer num2) {
@@ -183,19 +235,22 @@ public class BinaryOperatorExample {
       }
     };
 
-    // Usar o BinaryOperator para somar dois números
-    int numero1 = 5;
-    int numero2 = 7;
-    int resultado = somar.apply(numero1, numero2);
-    System.out.println("A soma de " + numero1 + " e " + numero2 + " é: " + resultado);
+    // Usar o BinaryOperator para somar todos os números manualmente
+    int resultado = 0;
+    for (Integer numero : numeros) {
+      resultado = somar.apply(resultado, numero);
+    }
+
+    // Imprimir o resultado da soma
+    System.out.println("A soma dos números é: " + resultado);
   }
 }
 ```
 
 > _Classe Anônima_:
-A classe anônima em Java é uma classe não recebeu um nome e é tanto declarado e instanciado em uma única instrução.
-Você deve considerar o uso de uma classe anônima sempre que você precisa para criar uma classe que será instanciado
-apenas uma vez.
+> A classe anônima em Java é uma classe não recebeu um nome e é tanto declarado e instanciado em uma única instrução.
+> Você deve considerar o uso de uma classe anônima sempre que você precisa para criar uma classe que será instanciado
+> apenas uma vez.
 
 ---
 
@@ -203,5 +258,6 @@ apenas uma vez.
 
 [1] "Java 8 Functional Interfaces." Baeldung. Disponível em: https://www.baeldung.com/java-8-functional-interfaces.
 
-[2] "Como utilizar uma classe anônima em Java." FAQ CartX. Disponível em: https://faqcartx.info/programa%C3%A7%C3%A3o/40977-como-utilizar-uma-classe-an%C3%B4nima-em-java.html.
+[2] "Como utilizar uma classe anônima em Java." FAQ CartX. Disponível
+em: https://faqcartx.info/programa%C3%A7%C3%A3o/40977-como-utilizar-uma-classe-an%C3%B4nima-em-java.html.
 
