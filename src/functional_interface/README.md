@@ -21,7 +21,7 @@ public class ConsumerExample {
     };
 
     // Usar o Consumer para imprimir números pares no Stream
-    numeros.stream().forEach(imprimirNumeroPar);
+    numeros.stream_api().forEach(imprimirNumeroPar);
   }
 }
 ```
@@ -108,7 +108,7 @@ public class FunctionExample {
     Function<Integer, Integer> dobrar = numero -> numero * 2;
 
     // Usar a função para dobrar todos os números no Stream e armazená-los em outra lista
-    List<Integer> numerosDobrados = numeros.stream()
+    List<Integer> numerosDobrados = numeros.stream_api()
         .map(dobrar)
         .collect(Collectors.toList());
 
@@ -159,7 +159,7 @@ public class PredicateExample {
     Predicate<Integer> isPar = numero -> numero % 2 == 0;
 
     // Usar o predicado para filtrar números pares no Stream e armazená-los em outra lista
-    List<Integer> numerosPares = numeros.stream()
+    List<Integer> numerosPares = numeros.stream_api()
         .filter(isPar)
         .collect(Collectors.toList());
 
@@ -212,7 +212,7 @@ public class BinaryOperatorExample {
     BinaryOperator<Integer> somar = (num1, num2) -> num1 + num2;
 
     // Usar o BinaryOperator para somar todos os números no Stream
-    int resultado = numeros.stream()
+    int resultado = numeros.stream_api()
         .reduce(0, somar);
 
     // Imprimir o resultado da soma
@@ -227,7 +227,7 @@ public class BinaryOperatorExample {
     // Criar uma lista de números inteiros
     List<Integer> numeros = Arrays.asList(1, 2, 3, 4, 5);
 
-    // Usar o BinaryOperator com uma classe anônima para somar dois números inteiros
+    // Usar o BinaryOperator com classe anônima para somar dois números inteiros
     BinaryOperator<Integer> somar = new BinaryOperator<Integer>() {
       @Override
       public Integer apply(Integer num1, Integer num2) {
@@ -235,11 +235,9 @@ public class BinaryOperatorExample {
       }
     };
 
-    // Usar o BinaryOperator para somar todos os números manualmente
-    int resultado = 0;
-    for (Integer numero : numeros) {
-      resultado = somar.apply(resultado, numero);
-    }
+    // Usar o BinaryOperator para somar todos os números no Stream
+    int resultado = numeros.stream_api()
+        .reduce(0, somar);
 
     // Imprimir o resultado da soma
     System.out.println("A soma dos números é: " + resultado);

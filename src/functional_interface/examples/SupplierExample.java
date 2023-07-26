@@ -1,9 +1,7 @@
 package functional_interface.examples;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.function.Supplier;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -18,9 +16,9 @@ public class SupplierExample {
     // Usar o Supplier para obter uma lista com 5 saudações
     List<String> listaSaudacoes = Stream.generate(saudacao)
         .limit(5)
-        .collect(Collectors.toList());
+        .toList();
 
     // Imprimir as saudações geradas
-    listaSaudacoes.forEach(s -> System.out.println(s));
+    listaSaudacoes.forEach(System.out::println);
   }
 }

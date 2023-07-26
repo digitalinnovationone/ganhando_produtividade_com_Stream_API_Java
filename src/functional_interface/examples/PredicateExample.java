@@ -2,28 +2,24 @@ package functional_interface.examples;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Consumer;
 import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
 /**
- * Representa uma função que aceita um argumento do tipo T e retorna um valor booleano (verdadeiro ou
- * falso). É comumente usada para filtrar os elementos do Stream com base em alguma condição.
+ * Representa uma função que aceita um argumento do tipo T e retorna um valor booleano (verdadeiro oufalso).
+ * É comumente usada para filtrar os elementos do Stream com base em alguma condição.
  */
 public class PredicateExample {
   public static void main(String[] args) {
-    // Criar uma lista de números inteiros
-    List<Integer> numeros = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+    // Criar uma lista de palavras
+    List<String> palavras = Arrays.asList("java", "kotlin", "python", "javascript", "c", "go", "ruby");
 
-    // Usar o Predicate com expressão lambda para filtrar números pares
-    Predicate<Integer> isPar = numero -> numero % 2 == 0;
+    // Criar um Predicate que verifica se a palavra tem mais de 5 caracteres
+    Predicate<String> maisDeCincoCaracteres = palavra -> palavra.length() > 5;
 
-    // Usar o predicado para filtrar números pares no Stream e armazená-los em outra lista
-    List<Integer> numerosPares = numeros.stream()
-        .filter(isPar)
-        .collect(Collectors.toList());
-
-    // Imprimir a lista de números pares
-    numerosPares.forEach(System.out::println);
+    // Usar o Stream para filtrar as palavras com mais de 5 caracteres e, em seguida,
+    // imprimir cada palavra que passou no filtro
+    palavras.stream()
+        .filter(maisDeCincoCaracteres)
+        .forEach(System.out::println);
   }
 }

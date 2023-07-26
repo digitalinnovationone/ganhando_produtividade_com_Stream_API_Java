@@ -6,7 +6,7 @@ import java.util.function.Consumer;
 
 /**
  * Representa uma operação que aceita um argumento do tipo T e não retorna nenhum resultado.
- * É utilizada principalmente para realizar ações ou efeitos colaterais nos elementos do Stream sem modificar ou
+ * É utilizada principalmente para realizar ações, ou efeitos colaterais nos elementos do Stream sem modificar, ou
  * retornar um valor.
  */
 public class ConsumerExample {
@@ -22,6 +22,8 @@ public class ConsumerExample {
     };
 
     // Usar o Consumer para imprimir números pares no Stream
-    numeros.stream().forEach(imprimirNumeroPar);
+    numeros.stream()
+        .filter(n -> n % 2 == 0)
+        .forEach(System.out::println);
   }
 }
