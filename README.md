@@ -44,7 +44,7 @@ public class CarrinhoDeCompras {
     if (itemList.isEmpty()) {
       throw new RuntimeException("A lista está vazia!");
     }
-    return itemList.stream()
+    return itemList.stream_api()
         .mapToDouble(item -> item.getPreco() * item.getQuant())
         .sum();
   }
