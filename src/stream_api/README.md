@@ -95,7 +95,8 @@ Com a Stream API, encontre a soma dos números da lista que são divisíveis tan
 - Os desafios podem ser executados individualmente a partir dos métodos main de cada classe.
 - Utilize a Stream API para implementar as operações solicitadas em cada desafio.
 
-Divirta-se resolvendo os desafios da Stream API do Java! Dúvidas: https://github.com/cami-la/ganhando_produtividade_com_Stream_API_Java/issues
+Divirta-se resolvendo os desafios da Stream API do Java!<br>
+Dúvidas: https://github.com/cami-la/ganhando_produtividade_com_Stream_API_Java/issues
 
 ---
 
