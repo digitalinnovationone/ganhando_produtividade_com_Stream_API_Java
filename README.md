@@ -112,7 +112,7 @@ public class OrdenacaoPessoa {
 
 ---
 
-### Referênciasq
+### Referências
 
 [1] "Java Stream API - Oracle." Oracle Brasil. Disponível em: https://www.oracle.com/br/technical-resources/articles/java-stream-api.html.
 
