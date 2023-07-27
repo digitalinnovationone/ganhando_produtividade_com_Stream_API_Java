@@ -102,4 +102,6 @@ Dúvidas: https://github.com/cami-la/ganhando_produtividade_com_Stream_API_Java/
 
 ### Referências
 
-[1] "Java Collections API Examples - cami-la." GitHub. Disponível em: https://github.com/cami-la/curso-dio-intro-collections.
+[1] "Principais métodos do Stream API - camila". Disponível em: https://github.com/cami-la/ganhando_produtividade_com_Stream_API_Java/blob/master/README.md
+
+[2] "Java Collections API Examples - cami-la." GitHub. Disponível em: https://github.com/cami-la/curso-dio-intro-collections.
