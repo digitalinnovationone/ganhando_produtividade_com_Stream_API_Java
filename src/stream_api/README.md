@@ -91,7 +91,7 @@ Com a Stream API, encontre a soma dos números da lista que são divisíveis tan
 
 
 ### Instruções:
-- Cada desafio está implementado em uma classe separada neste mesmo pacote.
+- Cada desafio deverá ser implementado em classes separadas neste mesmo pacote.
 - Os desafios podem ser executados individualmente a partir dos métodos main de cada classe.
 - Utilize a Stream API para implementar as operações solicitadas em cada desafio.
 
