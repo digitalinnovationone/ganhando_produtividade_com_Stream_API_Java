@@ -69,23 +69,19 @@ Com a Stream API, encontre o maior número primo da lista e exiba o resultado no
 
 Utilizando a Stream API, verifique se a lista contém pelo menos um número negativo e exiba o resultado no console.
 
-- Desafio 16 - Calcule o fatorial de um número:
-
-Crie um programa que receba um número inteiro como entrada e, utilizando a Stream API, calcule o fatorial desse número e exiba o resultado no console.
-
-- Desafio 17 - Agrupe os números em pares e ímpares:
+- Desafio 16 - Agrupe os números em pares e ímpares:
 
 Utilize a Stream API para agrupar os números em duas listas separadas, uma contendo os números pares e outra contendo os números ímpares da lista original, e exiba os resultados no console.
 
-- Desafio 18 - Filtrar os números primos da lista:
+- Desafio 17 - Filtrar os números primos da lista:
 
 Com a ajuda da Stream API, filtre os números primos da lista e exiba o resultado no console.
 
-- Desafio 19 - Verifique se todos os números da lista são iguais:
+- Desafio 18 - Verifique se todos os números da lista são iguais:
 
 Utilizando a Stream API, verifique se todos os números da lista são iguais e exiba o resultado no console.
 
-- Desafio 20 - Encontre a soma dos números divisíveis por 3 e 5:
+- Desafio 19 - Encontre a soma dos números divisíveis por 3 e 5:
 
 Com a Stream API, encontre a soma dos números da lista que são divisíveis tanto por 3 quanto por 5 e exiba o resultado no console.
 
